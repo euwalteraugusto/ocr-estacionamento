@@ -3,11 +3,23 @@ import cv2
 import numpy as np
 from config import DPI
 
-images = convert_from_path("arquivo.pdf",
-    poppler_path=r"C:\Users\walter.fonseca\Desktop\WALTER\DownloadsForProjects\poppler-25.12.0\Library\bin")
+# Note: avoid running conversion at import time. The example call above was
+# left in the file accidentally and caused an I/O error when the module was
+# imported by `main.py`.  The functions below handle conversion on demand.
+
+
+from config import DPI, POPPLER_PATH
 
 def pdf_to_images(pdf_path):
-    pages = convert_from_path(pdf_path, dpi=DPI)
+    # convert a PDF file to a list of OpenCV images.  The caller is
+    # responsible for passing a valid path; a missing file will generate an
+    # exception from pdf2image which we allow to bubble up so the caller can
+    # handle or log it.
+    kwargs = {"dpi": DPI}
+    if POPPLER_PATH:
+        kwargs["poppler_path"] = POPPLER_PATH
+
+    pages = convert_from_path(pdf_path, **kwargs)
     images = []
 
     for page in pages:
