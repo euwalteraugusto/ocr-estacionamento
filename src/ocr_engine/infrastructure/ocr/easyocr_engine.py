@@ -1,7 +1,7 @@
 import easyocr
 import cv2
-from config import LANGUAGES
-from application.interfaces.ocr_interface import OCREngineInterface
+from ...config import LANGUAGES
+from ...application.interfaces.ocr_interface import OCREngineInterface
 
 
 class EasyOCREngine(OCREngineInterface):

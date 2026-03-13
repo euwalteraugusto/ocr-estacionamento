@@ -1,6 +1,6 @@
 from typing import List
-from domain.services.ticket_extractor import TicketExtractor
-from domain.entities.ticket import Ticket
+from ...domain.services.ticket_extractor import TicketExtractor
+from ...domain.entities.ticket import Ticket
 
 
 class ProcessTicketsUseCase:
@@ -22,6 +22,9 @@ class ProcessTicketsUseCase:
 
                 for ticket_img in splitted:
                     text = self.ocr_engine.extract_text(ticket_img)
+                    print("=== TEXTO OCR ===")
+                    print(text)
+                    print("=================")
                     ticket = self.extractor.extract(text)
                     tickets.append(ticket)
 

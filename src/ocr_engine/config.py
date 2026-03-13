@@ -1,9 +1,10 @@
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-INPUT_DIR = BASE_DIR / "data" / "input"
-OUTPUT_DIR = BASE_DIR / "data" / "output"
-LOG_DIR = BASE_DIR / "data" / "logs"
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+DATA_DIR = BASE_DIR / "data"
+INPUT_DIR = BASE_DIR / "input"
+OUTPUT_DIR = BASE_DIR / "output"
+LOG_DIR = BASE_DIR / "logs"
 
 # Parâmetros para o pipeline de OCR
 DPI = 300

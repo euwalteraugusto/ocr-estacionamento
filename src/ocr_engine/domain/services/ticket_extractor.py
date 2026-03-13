@@ -1,6 +1,6 @@
 import re
 from datetime import datetime
-from domain.entities.ticket import Ticket
+from ...domain.entities.ticket import Ticket
 
 
 class TicketExtractor:

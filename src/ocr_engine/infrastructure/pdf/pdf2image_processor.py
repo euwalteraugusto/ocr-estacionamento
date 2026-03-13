@@ -1,8 +1,8 @@
 from pdf2image import convert_from_path
 import cv2
 import numpy as np
-from config import DPI, POPPLER_PATH
-from application.interfaces.pdf_interface import PDFProcessorInterface
+from ...config import DPI, POPPLER_PATH
+from ...application.interfaces.pdf_interface import PDFProcessorInterface
 
 
 class PDF2ImageProcessor(PDFProcessorInterface):
