@@ -37,7 +37,7 @@ src/
 - [Poppler](https://poppler.freedesktop.org/) (exigido pelo pdf2image)
   - Linux: `sudo apt install poppler-utils`
   - macOS: `brew install poppler`
-  - Windows: baixar os binários e apontar `POPPLER_PATH` em `src/ocr_engine/config.py` (ou colocar a pasta `bin` no PATH e definir `POPPLER_PATH = None`)
+  - Windows: baixar os binários e definir a variável de ambiente `POPPLER_PATH` com a pasta `bin` (ou colocar `bin` no PATH e não definir a variável)
 - Dependências Python (`requirements.txt`): pdf2image, opencv-python, easyocr, pandas, openpyxl, numpy, Pillow
 
 Na primeira execução o EasyOCR baixa os modelos do idioma, então é necessário acesso à internet.
@@ -52,7 +52,7 @@ source venv/bin/activate      # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-Ajuste `POPPLER_PATH` em `src/ocr_engine/config.py`: o valor atual é um caminho Windows específico de uma máquina e deve ser trocado pelo seu, ou por `None` se o Poppler estiver no PATH.
+Defina a variável de ambiente `POPPLER_PATH` (ex.: `set POPPLER_PATH=C:\poppler\Library\bin`). Se o Poppler estiver no PATH, não é necessário.
 
 ## Como rodar
 
